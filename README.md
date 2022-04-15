@@ -4,7 +4,7 @@ Employee tracker
 
 # Purpose
 
-A command-line application buuild to manage a company's employee database. Wich includes options to view all the departments, view all roles, view all employees, as well as options to add a department, add a role, add an employee, and update an employee role.
+A command-line application build to manage a company's employee database. Wich includes options to view all the departments, view all roles, view all employees, as well as options to add a department, add a role, add an employee, and update an employee role.
 
 # Built With
 
