@@ -1,0 +1,27 @@
+{
+  "name": "employee-tracking-system",
+  "version": "1.0.0",
+  "description": "Employee tracker",
+  "main": "connection.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Boris-Veselov/employee-tracking-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Boris-Veselov/employee-tracking-system/issues"
+  },
+  "homepage": "https://github.com/Boris-Veselov/employee-tracking-system#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.2",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
