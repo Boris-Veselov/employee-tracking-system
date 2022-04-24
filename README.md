@@ -19,7 +19,7 @@ https://boris-veselov.github.io/employee-tracking-system/
 
 # Demo
 
-https://watch.screencastify.com/v/2wUZuGPwdwikJ4l08x8y
+https://user-images.githubusercontent.com/96749114/164990736-98125e58-b7c9-4e09-96a3-ac28c0e5d85b.mp4
 
 # Contribution
 
