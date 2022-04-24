@@ -1,8 +1,8 @@
 // import express
-// const express = require('express');
-const db = require('./db/connection');
-const inquirer = require('inquirer');
-require('console.table');
+// const express = require("express");
+const db = require("./db/connection");
+const inquirer = require("inquirer");
+require("console.table");
 
 // port designation and the app expression
 // const PORT = process.env.PORT || 3001;
@@ -206,39 +206,46 @@ const systemStart = function() {
     
     // add a new role
     function addRole() {
-        inquirer
-        .prompt([
-            {
-            type: "input",
-            message: "enter employee role",
-            name: "addRole"
-            },
-            {
-            type: "input",
-            message: "enter employee salary",
-            name: "addSalary"
-            },
-            {
-            type: "input",
-            message: "enter employee department id",
-            name: "addDepId"
-            }
-        ])
-        .then(function(answer) {
-            db.query(
-            "INSERT INTO role SET ?",
-            {
-                title: answer.addtitle,
-                salary: answer.addsalary,
-                department_id: answer.addDepId
-            },
-            function(err, answer) {
-                if (err) {
-                throw err;
+        db.query("SELECT * FROM department", (err, res) => {
+            const RoleInfoArray = []
+            for (let i = 0; i < res.length; i++) {
+                const newRole = {
+                    name: res[i].name,
+                    value: res[i].id
                 }
-                console.table(answer);
+                RoleInfoArray.push(newRole)
             }
-            );
-            systemStart();
-        });
+            inquirer.prompt([
+                {
+                    type: "input",
+                    message: "What is the role of your choosing?",
+                    name: "roleTitle",
+                },
+                {
+                    type: "input",
+                    message: "What is the salary of the role of your choosing?",
+                    name: "roleSalary",
+                },
+                {
+                    type: "list",
+                    message: "What is the department of the role of your choosing?",
+                    name: "roleDepartment",
+                    choices: RoleInfoArray
+                }
+            ]).then((res) => {
+                db.query(
+                    "INSERT INTO role (title, salary, department_id) VALUES (?,?,?)",
+                    [res.roleTitle, res.roleSalary, res.roleDepartment],
+                    (err, res) => {
+                        console.log("Added the role to the database.")
+            systemStart()
+            })
+            })
+        })
     }
+    
+    
+
+
+           
+   
