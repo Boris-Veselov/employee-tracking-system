@@ -17,7 +17,9 @@ A command-line application build to manage a company's employee database. Wich i
 
 https://boris-veselov.github.io/employee-tracking-system/
 
-# Screenshot
+# Demo
+
+https://watch.screencastify.com/v/2wUZuGPwdwikJ4l08x8y
 
 # Contribution
 
