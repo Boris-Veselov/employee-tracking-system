@@ -1,26 +1,36 @@
 DROP DATABASE IF EXISTS tracking;
-
 CREATE DATABASE tracking;
 USE tracking;
 
-CREATE TABLE department (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    department_name VARCHAR(30) NOT NULL
+CREATE TABLE department
+(
+  id INT AUTO_INCREMENT,
+  name VARCHAR(30),
+  PRIMARY KEY(id)
 );
 
-CREATE TABLE employee (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    role_id INTEGER,
-    manager_id INTEGER
+CREATE TABLE roles
+(
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(30),
+  salary DECIMAL NOT NULL,
+  department_id INT,
+  PRIMARY KEY(id),
+  FOREIGN KEY(department_id) REFERENCES department(id)
 );
 
-CREATE TABLE role (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(30) NOT NULL,
-    salary DECIMAL,
-    department_id INTEGER
+CREATE TABLE employee
+(
+  id INT AUTO_INCREMENT,
+  first_name VARCHAR(30),
+  last_name VARCHAR(30),
+  role_id INT NULL,
+  manager_id INT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY (role_id) REFERENCES roles(id)
 );
+
+
+
 
 
